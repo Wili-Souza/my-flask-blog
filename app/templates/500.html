@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="main-content">
+        <h1>An unexpected error has ocurred.</h1>
+        <p>We'll work on solving this, try again later!</p>
+        <p><a href="{{ url_for('home' )}}">Back</a></p>
+    </div>
+{% endblock %}

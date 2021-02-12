@@ -1,0 +1,13 @@
+<div class="user-image" style="
+    background: url(
+        {% if (user.image) == 'default.jpg' %}
+            {{ user.avatar(60) }}
+        {% else %}
+            {{ url_for('static', filename='profile_pics/' + user.image)}}
+        {% endif %}
+    );
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+">
+</div>

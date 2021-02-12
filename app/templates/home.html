@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    {% if form %}
+    <form class="post new-post" method="POST">
+        {{ form.hidden_tag() }} <!-- generates a hidden field to protect the form against CSFR - secret jey required --> 
+        <p>
+            <div class="user-image user-image-post" style="
+                background: url(
+                    {% if current_user.image == 'default.jpg' %}
+                        {{ current_user.avatar(60) }}
+                    {% else %}
+                        {{ url_for('static', filename='profile_pics/' + current_user.image)}}
+                    {% endif %}
+                );
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+            ">
+            </div>
+            <span class="post-author">Create a new post as {{ current_user.username }}</span> 
+        </p>
+        <hr>
+        {{ form.title.label }} <br> 
+        {% if form.title.errors %}
+            {{ form.title(class="form-input invalid-form-input") }}
+            <div class="invalid-feedback">
+                {% for error in form.title.errors %}
+                    <span class="error-messsage-input">{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.title(class="form-input") }} 
+        {% endif %}
+        <br><br>
+        {{ form.content.label }} <br>
+        {% if form.content.errors %}
+            {{ form.content(class="form-input invalid-form-input textarea soft") }}
+            <div class="invalid-feedback">
+                {% for error in form.content.errors %}
+                    <span class="error-messsage-input">{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.content(class="form-input textarea soft") }}
+        {% endif %}
+        <p>{{ form.submit(class="form-btn bottom-center-btn") }}</p>
+    </form>
+    {% endif %}
+    {% for post in posts %}
+    {% include "_post.html" %}
+    {% endfor %}
+    <!-- page navigation -->
+    <div class="navigation-links">
+        {% if prev_url %}
+            <a class="navigation-link-prev" href="{{ prev_url }}"> < Previous</a>
+        {% endif %}
+        {% if next_url %}
+            <a class="navigation-link-next" href="{{ next_url }}">Next > </a>
+        {% endif %}
+    </div>
+{% endblock content %}

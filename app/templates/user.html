@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="main-content" style="width: 100%;">
+        <div class="user-account-box user-page" >
+            {% include "_profile_pic.html" %}
+            <div class="user-info">
+                {% if user == current_user %}
+                <small class="edit-button"><a href="{{ url_for('account') }}">Edit</a></small>
+                {% elif not current_user.is_following(user) %}
+                <span>
+                    <form action="{{ url_for('follow', username=user.username) }}" method="POST">
+                        {{ form.hidden_tag() }}
+                        {{ form.submit(value="Follow", class="follow-btn") }}
+                    </form>
+                </span>
+                {% else %}
+                    <form action="{{ url_for('unfollow', username=user.username) }}" method="POST">
+                        {{ form.hidden_tag() }}
+                        <small>{{ form.submit(value="Unfollow", class="follow-btn") }}</small>
+                    </form>
+                {% endif %}
+                <h2>{{ user.username }}</small></h2>
+                {% if current_user == user %}
+                    <p>{{ user.email }}</p>
+                {% endif %}
+                {% if user.about_me %} <span>{{ user.about_me }}</span><br><br> {% endif %}
+                <span class="followers">
+                    followers: {{ user.followers.count() }} | 
+                    following: {{ user.followed.count() }}
+                </span><br><br>
+                {% if user.last_seen %} 
+                    <small>Last seen: {{ moment(user.last_seen).format("LLL") }}</small> 
+                {% endif %}
+               
+            </div>
+        </div>
+
+        {% for post in posts %}
+            {% include "_post.html" %}
+        {% endfor %}
+    </div>
+    <div class="navigation-links">
+        {% if prev_url %}
+            <a class="navigation-link-prev" href="{{ prev_url }}"> < Previous</a>
+        {% endif %}
+        {% if next_url %}
+            <a class="navigation-link-next" href="{{ next_url }}">Next > </a>
+        {% endif %}
+    </div>
+{% endblock content %}

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="page-section">
+        <form method="POST", action="" novalidate>
+            {{ form.hidden_tag() }} <!-- generates a hidden field to protect the form against CSFR - secret jey required --> 
+            <fieldset class="form-box">
+                <legend class="form-legend"> Login </legend>
+                <p>
+                    {{ form.email.label }} <br> <!-- the string passes in the type field  -->
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-input invalid-form-input") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span class="error-messsage-input">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(size=32, class="form-input") }} <!-- size -->
+                    {% endif %}
+                </p>                
+                <p>
+                    {{ form.password.label }} <br> <!-- the string passes in the type field  -->
+                    {% if form.password.errors %}
+                    {{ form.password(class="form-input invalid-form-input") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                            <span class="error-messsage-input">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.password(size=32, class="form-input") }} <!-- size -->
+                {% endif %}
+                </p>
+                <p>{{ form.remember.label }} {{ form.remember() }}</p>
+                <p>{{ form.submit(class="form-btn") }}</p>
+                <small class="small-link"><a href="#">Forgot your password?</a></small>
+            </fieldset>
+        </form>
+    </div>
+    <div class="login-redirect">
+        <p>
+           Don't have an account? <a class="login-redirect-link" href="{{ url_for('register') }}">Sign up</a>
+        </p>
+    </div>
+{% endblock content %}

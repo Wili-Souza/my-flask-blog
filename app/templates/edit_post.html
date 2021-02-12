@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="post new-post">
+        <p>
+            {% include "_profile_post_pic.html" %}
+            <span class="post-author"><a href="{{ url_for('user', username=post.author.username) }}">{{ post.author.username }}</a></span> 
+            <span class="post-date">{{ moment(post.timestamp).fromNow() }}</span>
+        </p>
+        <hr>
+        <form method="POST" action="" novalidate>
+            {{ form.hidden_tag() }}
+            <h1 class="hidden-input-h1">{{ form.title(class="hidden-input") }}</h1>
+            {% if form.title.errors %}
+                {% for error in form.title.errors %}
+                    <span class="error-messsage-input">{{ error }}</span>
+                {% endfor %}
+            {% endif %}
+            <p class="hidden-input-p">{{ form.content(class="hidden-input") }}</p>
+            {% if form.content.errors %}
+                {% for error in form.content.errors %}
+                    <span class="error-messsage-input">{{ error }}</span>
+                {% endfor %}
+            {% endif %}
+            <p>{{ form.submit(class="form-btn bottom-center-btn") }}</p>
+        </form>
+    </div>
+{% endblock content %}

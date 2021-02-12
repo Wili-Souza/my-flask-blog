@@ -1,0 +1,527 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'montserrat';
+}
+
+h1{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: -0.1rem;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(255, 0, 76);
+    cursor: pointer;
+}
+
+a:hover{
+    color: darkgrey;
+}
+
+.btn-none{
+    background-color: transparent;
+    border-style: none;
+}
+
+.btn-none:focus{
+    border-style: none;
+    outline: none;
+}
+
+.text {
+    font-size: 0.8rem;
+}
+
+.blue{
+    color: darkblue;
+}
+
+/* Navbar  */
+
+.nav{
+    background: #252525;
+    display: inline-block;
+    width: 100%;
+    height: 5rem;
+}
+
+.logo{
+    font-family: 'Sansita Swashed';
+    color: rgb(255, 0, 76);
+    font-size: 2rem;
+    position: absolute;
+    left: 10%;
+    top: -0.5rem;
+}
+
+/* Opções do menu */
+
+.nav-control{
+    width: 30rem;
+    margin-top: 1.3%;
+    display: inline-block;
+    position: absolute;
+    right: 4rem;
+    font-family: 'montserrat';
+    font-weight: 300;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.nav ul li{
+    margin: 0 1rem;
+    display: inline-block;
+}
+
+.nav ul a{
+    color: rgb(255, 0, 76);
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.nav ul li a:hover {
+    color:rgb(255, 255, 255)
+}
+
+/* botão do Menu */
+
+    /*Criando o label */
+label[for=menu]{
+    position: absolute;
+    top: 3%;
+    right: 6rem;
+    color: rgb(255, 0, 76);
+    font-size: 30px;
+    cursor: pointer;
+    height: 50px;
+}
+
+label[for=menu], #menu{
+    display: none;
+}
+
+/* alerts */
+.alert {
+    padding: 0.5rem 2rem;
+    background-color: white;
+    border-style: none none none solid;
+    font-size: 0.7rem;
+    font-weight: 100;
+    margin-bottom: 2rem;
+}
+
+.alert-success{
+    border-color: rgb(88, 219, 28);
+    color:rgb(88, 219, 28);
+}
+
+.alert-danger{
+    border-color: rgb(219, 28, 28);
+    color:rgb(219, 28, 28);
+}
+
+/* conteudo da pagina */
+.page-content{
+    background-color: rgb(245, 245, 245);
+    padding: 3% 10% 3% 17%;
+}
+
+/* conteúdo principal */
+.main-content{
+    width: 60%;
+    display: inline-block;
+}
+
+.post{
+    position: relative;
+    background-color: white;
+    border-style: none none none solid;
+    border-color:  rgb(255, 0, 76) ;
+    border-radius: 0 5px 5px 0;
+    margin-bottom: 3rem;
+    padding: 1rem 1rem 1rem 3rem;
+}
+.new-post{
+    position: relative;
+    padding-bottom: 5rem;
+}
+
+.new-post, .new-post hr, .new-post .post-author{
+    border-color: rgb(0, 0, 0) !important;
+    color: rgb(0, 0, 0) !important;
+}
+
+.new-post hr{
+    margin-bottom: 1.5rem;
+}
+
+.post-author, .post-date{
+    font-size: 0.8rem;
+}
+
+.post-author{
+    color:rgb(255, 0, 76);
+    font-weight: bold;
+}
+
+.post hr{
+    width: 90%;
+    border-style: solid none none none;
+    border-color: rgb(255, 206, 221);
+}
+
+/* conteúdo principal */
+.side-content{
+    width: 30%;
+    margin-left: 5%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.box-side-content{
+    background: #252525;
+    color: #fff;
+    font-weight: 100;
+    box-shadow: 2px 2px 8px #ccc;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.box-side-content ul li:hover{
+    transition: all .2s;
+    color: rgb(255, 0, 76);
+}
+
+/* forms */
+.form-box{
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(255, 0, 76);
+    padding: 3% 5%;
+}
+
+.form-legend{
+    color: rgb(255, 0, 76)
+}
+
+.form-input{
+    border-radius: 5px;
+    border-style: none;
+    box-shadow: 1px 1px 4px rgba(139, 139, 139, 0.2);
+    margin: 1rem 0.5rem 0 0;
+    width: 80%;
+    height: 2rem;
+    font-size: 1rem;
+    padding-left: 1rem;
+}
+
+.invalid-form-input{
+    box-shadow: 1px 1px 4px rgba(197, 12, 12, 0.7);
+}
+
+.error-messsage-input{
+    color: rgb(206, 48, 48);
+    font-size: 0.8rem;
+}
+
+.form-input:focus{
+    border-style: none;
+    box-shadow: 1px 1px 4px rgba(139, 139, 139, 0.7);
+    outline: none;
+}
+
+.form-btn{
+    border-radius: 3px;
+    border-style: none;
+    box-shadow: 1px 1px 4px rgba(139, 139, 139, 0.2);
+    background-color: rgba(139, 139, 139, 0.2);
+    font-family: "Montserrat";
+    margin: 0.7rem 0 1rem 0;
+    width: 30%;
+    height: 2rem;
+    font-size: 1rem;
+    transition: all .2s;
+}
+
+.form-btn:focus{
+    border-style: none;
+    outline: none;
+}
+
+.form-btn:hover{
+    background-color: rgba(25, 25, 25, 0.7);
+    color: rgb(245, 245, 245)
+}
+
+.follow-btn{  
+    z-index: 1;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    border-radius: 3px;
+    border-style: none;
+    box-shadow: 1px 1px 4px rgba(139, 139, 139, 0.2);
+    background-color: rgba(139, 139, 139, 0.2);
+    font-family: "Montserrat";
+    margin: 0;
+    width: 17% !important;
+    height: 1rem;
+    font-size: 0.7rem;
+    transition: all .2s;
+}
+
+.follow-btn:focus{
+    border-style: none;
+    outline: none;
+}
+
+.follow-btn:hover{
+    background-color:rgba(255, 0, 76, 0.5);
+    color: rgb(245, 245, 245)
+}
+
+.small-link a{
+    text-decoration: none;
+    color:rgba(255, 0, 76, 0.5);
+    transition: all .2s;
+}
+
+.small-link a:hover{
+    text-decoration: none;
+    color:rgb(63, 46, 46);
+}
+
+.login-redirect{
+    margin-left: 1rem;
+}
+
+.login-redirect-link{
+    text-decoration: none;
+    color: rgb(255, 0, 76);
+    transition: all .3s;
+}
+
+.login-redirect-link:hover{
+    color: rgb(158, 0, 47);
+}
+
+/* user account page */
+.user-account-box{
+    position: relative;
+    padding-bottom: 5rem;
+    background-color: white;
+    box-shadow: 1px 1px 6px rgba(25, 25, 25, 0.2);
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.edit-button{
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+}
+
+.user-page {
+    padding-bottom: 1rem;
+}
+
+.user-page small a{
+    text-decoration: none;
+    color:rgb(25, 25, 25);
+    margin-left: 2rem;
+    font-size: 0.7rem;
+    font-weight: 400;
+}
+
+.user-page small a:hover{
+    color:rgb(201, 0, 0);
+}
+
+.user-account-box .form-box{
+    margin-top: 2rem;
+    border-style: none;
+}
+
+.user-account-box hr{
+    border-style: solid none none none;
+    border-width: 1px;
+    border-color: rgba(25, 25, 25, .2);
+    width: 80%;
+}
+
+.user-account-box legend{
+    text-align: center;
+    color: black;
+    margin-bottom: 0;
+    font-weight: 100;
+}
+
+.user-account-box input{
+    width: 60%;
+    box-shadow: none;
+}
+
+.textarea{
+    margin-top: 0.5rem;
+    border-style: solid;
+    border-width: 1px;
+    width: 80%;
+    height: 5rem;
+    resize: none;
+    box-shadow: none;
+    font-family: "Montserrat";
+    padding: 0.7rem;
+}
+
+.soft{
+    border-style: none;
+    box-shadow: 1px 1px 4px rgba(139, 139, 139, 0.2);
+}
+
+.bottom-center-btn{
+   position: absolute;
+   bottom: 1rem;
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+.user-image{
+    display: inline-block;
+    vertical-align: middle;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+    overflow: hidden;
+    margin: 2rem 0 2rem 2rem;
+}
+
+.user-image-post{
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100%;
+    overflow: hidden;
+    margin: 0 1rem 0 0;
+
+}
+
+.user-info{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2rem;
+    width: 50%;
+    word-wrap: break-word;
+}
+
+.user-info p {
+    color: rgb(219, 28, 28);
+    margin-top: 0;
+}
+
+.user-info h2 {
+   margin-bottom: 0.5rem;
+}
+
+/* navigation links */
+.navigation-links{
+    position: relative;
+    width: 100%;
+} 
+
+.navigation-link-next{
+    position: absolute;
+    right: 0;
+}
+
+.navigation-link-prev{
+    position: absolute;
+    left: 0;
+}
+
+
+/* edit post */
+
+.hidden-input{
+    border-style: none;
+    font-family: "Montserrat";
+    resize: none;
+    width: 90%;
+    height: 5rem;
+}
+
+.hidden-input:focus{
+    border-style: none;
+    outline: none;
+}
+
+.hidden-input-h1 .hidden-input{
+    font-size: 1.5rem;
+}
+
+.hidden-input-p .hidden-input{
+    font-size: 1rem;
+}
+
+/* Responsividade */
+
+@media(max-width:767px) {
+    .nav-control{
+        margin: 5rem -6rem 10rem auto;
+        width: 40%;
+        z-index: 1;
+        background-color: rgba(139, 139, 139, 0.7);
+        position: absolute;
+        display: block;
+        height: 0;
+        opacity: 0;
+        transition: all .4s;
+    }
+
+    label[for=menu]{
+        display: block;
+    }
+
+    #menu:checked ~ .nav-control{
+        height: 10rem;
+        opacity: 1;
+    }
+
+    .nav-control ul li {
+        display: block;
+        margin: 1rem;
+        opacity: 0;
+        transition: all .4s;
+    }
+
+    #menu:checked ~ .nav-control ul li {
+        opacity: 1;
+    }
+
+    .nav-control ul li a{
+        color:rgb(25, 25, 25);
+    }
+
+    .links li a{
+        font-size: 0.8rem;
+    }
+
+    .main-content{
+        width: 100%;
+        display: block;
+    }
+
+    .side-content{
+        margin: auto;
+        margin-top: 7rem;
+        width: 100%;
+        display: block;
+    }
+
+    .follow-btn{
+        width: 25% !important;
+    }
+}

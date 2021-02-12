@@ -1,0 +1,19 @@
+<div class="post">
+    <p>
+        {% include "_profile_post_pic.html" %}
+        <span class="post-author"><a href="{{ url_for('user', username=post.author.username) }}">{{ post.author.username }}</a></span> 
+        <span class="post-date">{{ moment(post.timestamp).fromNow() }}</span>
+    </p>
+    {% if post.author == current_user %}
+        <small style="margin-right: 4rem" class="edit-button"><a class="blue" href="{{ url_for('EditPost', post_id=post.id) }}">Edit</a></small>
+        <form action="{{ url_for('DeletePost', post_id=post.id) }}" method="POST">
+            {{ form.hidden_tag() }}
+            <button class="btn-none edit-button pink-red" type="submit" >
+                <a>Delete</a>
+            </button>
+        </form>
+    {% endif %}
+    <hr>
+    <h1>{{  post.title  }}</h1>
+    <p>{{ post.body }}</p>
+</div>
